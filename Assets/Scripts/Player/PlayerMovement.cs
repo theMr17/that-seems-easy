@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public PlayerMovementSo playerMovementSo;
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _headCollider;
-    [SerializeField] private Animator _animator;
 
     private Rigidbody2D _rigidbody;
 
@@ -51,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         if (_isGrounded)
         {
             Move(playerMovementSo.groundAcceleration, playerMovementSo.groundDeceleration, InputManager.movement);
-            _animator.SetBool("isMoving", Mathf.Abs(_moveVelocity.x) > 0.1f);
         }
         else
         {
@@ -64,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         CountTimers();
         JumpChecks();
 
-        _animator.SetBool("isFalling", _isFalling || _isFastFalling);
     }
 
     private void JumpChecks()
@@ -107,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
             InitiateJump(1);
 
             _isFalling = false;
-            _animator.SetBool("isFalling", false);
 
             if (_jumpReleasedDuringBuffer)
             {
@@ -115,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
                 _fastFallReleaseSpeed = verticalVelocity;
             }
 
-            _animator.SetTrigger("jump");
         }
         // double jump
         else if (_jumpBufferTime > 0f && _isJumping && _numberOfJumpsUsed < playerMovementSo.numberOfJumpsAllowed)
@@ -123,7 +118,6 @@ public class PlayerMovement : MonoBehaviour
             InitiateJump(1);
             _isFastFalling = false;
 
-            _animator.SetTrigger("doubleJump");
         }
         // air jump after coyote time lapsed
         else if (_jumpBufferTime > 0f && _isFalling && _numberOfJumpsUsed < playerMovementSo.numberOfJumpsAllowed - 1)
@@ -144,7 +138,6 @@ public class PlayerMovement : MonoBehaviour
 
             verticalVelocity = Physics2D.gravity.y;
 
-            _animator.SetBool("isFalling", false);
         }
     }
 
