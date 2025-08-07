@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerMovementSo playerMovementSo;
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _headCollider;
+    private Animator _animator;
 
     private Rigidbody2D _rigidbody;
 
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _isFacingRight = true;
     }
 
@@ -47,9 +50,14 @@ public class PlayerMovement : MonoBehaviour
         CollisionChecks();
         Jump();
 
+        _animator.SetFloat("velocityX", Math.Abs(_rigidbody.linearVelocityX));
+        _animator.SetFloat("velocityY", _rigidbody.linearVelocityY);
+
+
         if (_isGrounded)
         {
             Move(playerMovementSo.groundAcceleration, playerMovementSo.groundDeceleration, InputManager.movement);
+
         }
         else
         {
@@ -59,9 +67,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
         CountTimers();
         JumpChecks();
-
     }
 
     private void JumpChecks()
@@ -71,6 +79,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _jumpBufferTime = playerMovementSo.jumpBufferTime;
             _jumpReleasedDuringBuffer = false;
+
+
         }
 
         // when we release the jump button
@@ -137,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
             _numberOfJumpsUsed = 0;
 
             verticalVelocity = Physics2D.gravity.y;
-
+            _animator.SetBool("isJumping", false);
         }
     }
 
@@ -146,6 +156,7 @@ public class PlayerMovement : MonoBehaviour
         if (!_isJumping)
         {
             _isJumping = true;
+            _animator.SetBool("isJumping", true);
         }
 
         _jumpBufferTime = 0f;
