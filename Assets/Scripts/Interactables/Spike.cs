@@ -1,20 +1,12 @@
 using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class Spike : BaseTrap
 {
   private void Start()
   {
     if (DemoLevelManager.Instance != null)
     {
       GetComponent<SpriteRenderer>().color = DemoLevelManager.Instance.GetLevelThemeColors().tileColor;
-    }
-  }
-
-  private void OnCollisionEnter2D(Collision2D collision)
-  {
-    if (collision.gameObject.TryGetComponent<PlayerMovement>(out var player))
-    {
-      player.Die();
     }
   }
 }
