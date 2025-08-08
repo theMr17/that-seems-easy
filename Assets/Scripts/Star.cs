@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class Star : MonoBehaviour
 {
+
   private void Start()
   {
     if (DemoLevelManager.Instance != null)
@@ -12,9 +13,9 @@ public class Spike : MonoBehaviour
 
   private void OnCollisionEnter2D(Collision2D collision)
   {
-    if (collision.gameObject.TryGetComponent<PlayerMovement>(out var player))
+    if (collision.gameObject.CompareTag("Player"))
     {
-      player.Die();
+      DemoLevelManager.Instance.CompleteLevel();
     }
   }
 }

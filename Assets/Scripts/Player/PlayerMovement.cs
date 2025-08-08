@@ -420,4 +420,23 @@ public class PlayerMovement : MonoBehaviour
             DrawJumpArc(playerMovementSo.maxRunSpeed, Color.red);
         }
     }
+
+    public void BounceFromSpring(float initialSpringJumpVelocity)
+    {
+        verticalVelocity = initialSpringJumpVelocity;
+        _isJumping = true;
+        _isFalling = false;
+        _isFastFalling = false;
+        _fastFallTime = 0f;
+        _numberOfJumpsUsed = 1;
+        _animator.SetBool("isJumping", true);
+
+        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, verticalVelocity);
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }

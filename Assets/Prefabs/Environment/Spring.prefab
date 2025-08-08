@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4100072648601477511}
   - component: {fileID: 8097214665398384904}
   - component: {fileID: 6927014314435989984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222f8f389ea694745b6f2153da6a58c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSpringJumpVelocity: 25

@@ -19,4 +19,9 @@ class DemoLevelManager : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger(parameterName);
     }
+
+    public void CompleteLevel()
+    {
+        Debug.Log("Level Completed!");
+    }
 }

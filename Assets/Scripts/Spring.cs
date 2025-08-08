@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Spring : MonoBehaviour
 {
+  [SerializeField] private float initialSpringJumpVelocity = 25f;
 
   private void Start()
   {
@@ -15,7 +16,17 @@ public class Spring : MonoBehaviour
   {
     if (collision.gameObject.CompareTag("Player"))
     {
+      // Apply jump force to the player
+      if (collision.gameObject.TryGetComponent<PlayerMovement>(out var player))
+      {
+        player.BounceFromSpring(initialSpringJumpVelocity);
+      }
 
+      // // Optional: Trigger spring animation
+      // if (_animator != null)
+      // {
+      //   _animator.SetTrigger(springAnimationParameter);
+      // }
     }
   }
 }
