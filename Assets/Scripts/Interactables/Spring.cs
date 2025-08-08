@@ -19,6 +19,7 @@ public class Spring : MonoBehaviour
       // Apply jump force to the player
       if (collision.gameObject.TryGetComponent<PlayerMovement>(out var player))
       {
+        GetComponent<Animator>()?.SetTrigger("SpringJump");
         player.BounceFromSpring(initialSpringJumpVelocity);
       }
 
