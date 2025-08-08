@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuUi : MonoBehaviour
@@ -17,7 +18,7 @@ public class MainMenuUi : MonoBehaviour
 
   private void OnPlayButtonClicked()
   {
-    Debug.Log("Play button clicked.");
+    SceneManager.LoadScene("SampleScene");
   }
 
   private void OnOptionsButtonClicked()

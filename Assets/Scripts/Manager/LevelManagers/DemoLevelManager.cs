@@ -2,12 +2,21 @@ using UnityEngine;
 
 class DemoLevelManager : MonoBehaviour
 {
-    public DemoLevelManager Instance { get; private set; }
-    [SerializeField] private Camera mainCamera;
+    public static DemoLevelManager Instance { get; private set; }
     [SerializeField] private LevelThemeColorSo colorSo;
 
-    private void Start()
+    private void Awake()
     {
-        mainCamera.backgroundColor = colorSo.backgroundColor;
+        Instance = this;
+    }
+
+    public LevelThemeColorSo GetLevelThemeColors()
+    {
+        return colorSo;
+    }
+
+    public void TriggerAnimation(string parameterName)
+    {
+        GetComponent<Animator>().SetTrigger(parameterName);
     }
 }
