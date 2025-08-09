@@ -7,10 +7,12 @@ public class SelectLevelUi : MonoBehaviour
   public Transform levelButtonContainer;
   public GameObject levelButtonPrefab;
   public Sprite lockedThemeIcon;
+  public TextMeshProUGUI deathCountText;
 
   private void Start()
   {
     PopulateThemeButtons();
+    deathCountText.text = PlayerPrefs.GetInt("DeathCount", 0).ToString();
   }
 
   private void PopulateThemeButtons()
