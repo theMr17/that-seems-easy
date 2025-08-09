@@ -18,7 +18,7 @@ public class MainMenuUi : MonoBehaviour
 
   private void OnPlayButtonClicked()
   {
-    SceneManager.LoadScene("LevelSelectionScene");
+    SceneLoader.Instance.LoadScene(SceneLoader.Scene.LevelSelectionScene);
   }
 
   private void OnOptionsButtonClicked()
