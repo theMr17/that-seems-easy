@@ -15,7 +15,7 @@ public class Trigger : MonoBehaviour
       }
 
       // Disable the collider to prevent re-triggering
-      GetComponent<Collider2D>().enabled = false;
+      gameObject.SetActive(false);
     }
   }
 }
