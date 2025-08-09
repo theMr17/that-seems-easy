@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4100072648601477511}
   - component: {fileID: 8097214665398384904}
   - component: {fileID: 6927014314435989984}
+  - component: {fileID: 4146145816904747208}
   m_Layer: 6
   m_Name: Spring
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 919517453, guid: d9f3b39f4731e3b4c9951d174a65cbbf, type: 3}
+  m_Sprite: {fileID: 2107953813, guid: d9f3b39f4731e3b4c9951d174a65cbbf, type: 3}
   m_Color: {r: 1, g: 0.41960785, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,3 +149,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpringJumpVelocity: 25
+--- !u!95 &4146145816904747208
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6440693987710417066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aa4f413e770e6f34281b8b6ae36e7251, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
