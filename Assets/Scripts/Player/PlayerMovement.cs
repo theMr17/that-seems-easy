@@ -451,10 +451,7 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
 
         // Wait until particle system finishes playing
-        yield return new WaitForSeconds(
-            _deathParticleSystem.main.duration +
-            _deathParticleSystem.main.startLifetime.constantMax
-        );
+        yield return new WaitForSeconds(_deathParticleSystem.main.duration + _deathParticleSystem.main.startLifetime.constantMax);
 
         if (DemoLevelManager.Instance != null)
         {

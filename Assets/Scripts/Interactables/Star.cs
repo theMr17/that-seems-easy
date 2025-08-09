@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class Star : MonoBehaviour
 {
+  [SerializeField] private ParticleSystem _collectionEffect;
 
   private void Start()
   {
@@ -15,7 +17,18 @@ public class Star : MonoBehaviour
   {
     if (collision.gameObject.CompareTag("Player"))
     {
-      DemoLevelManager.Instance.CompleteLevel();
+      StartCoroutine(AnimateCollection());
     }
+  }
+
+  private IEnumerator AnimateCollection()
+  {
+    _collectionEffect.Play();
+
+    GetComponent<SpriteRenderer>().enabled = false;
+
+    yield return new WaitForSeconds(_collectionEffect.main.duration + _collectionEffect.main.startLifetime.constantMax);
+
+    DemoLevelManager.Instance.CompleteLevel();
   }
 }
