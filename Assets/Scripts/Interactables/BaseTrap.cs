@@ -6,10 +6,6 @@ public abstract class BaseTrap : MonoBehaviour
   {
     if (collision.gameObject.TryGetComponent<PlayerMovement>(out var player))
     {
-      if (DemoLevelManager.Instance != null)
-      {
-        DemoLevelManager.Instance.Reset();
-      }
       player.Die();
     }
   }

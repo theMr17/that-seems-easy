@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerMovementSo playerMovementSo;
     [SerializeField] private Collider2D _feetCollider;
     [SerializeField] private Collider2D _headCollider;
+    [SerializeField] private ParticleSystem _deathParticleSystem;
+
     private Animator _animator;
 
     private Rigidbody2D _rigidbody;
@@ -436,6 +439,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        // Add delay and animate death
+        StartCoroutine(AnimateDeath());
+    }
+
+    private IEnumerator AnimateDeath()
+    {
+        _deathParticleSystem.Play();
+
+        enabled = false;
+        _rigidbody.linearVelocity = Vector2.zero;
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        // Wait until particle system finishes playing
+        yield return new WaitForSeconds(
+            _deathParticleSystem.main.duration +
+            _deathParticleSystem.main.startLifetime.constantMax
+        );
+
+        if (DemoLevelManager.Instance != null)
+        {
+            DemoLevelManager.Instance.Reset();
+        }
     }
 }
