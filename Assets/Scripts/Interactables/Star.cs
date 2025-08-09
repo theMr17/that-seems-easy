@@ -17,6 +17,7 @@ public class Star : MonoBehaviour
   {
     if (collision.gameObject.CompareTag("Player"))
     {
+      SoundManager.Instance.PlayStarCollect(transform.position);
       StartCoroutine(AnimateCollection());
     }
   }

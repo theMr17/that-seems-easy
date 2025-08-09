@@ -32,6 +32,11 @@ public class SoundManager : MonoBehaviour
     AudioSource.PlayClipAtPoint(audioClip, position, volume);
   }
 
+  public void PlayStarCollect(Vector3 position)
+  {
+    PlaySound(_audioClipRefsSo.collectStar, position, _volume);
+  }
+
   public void ChangeVolume(float volume)
   {
     _volume = volume;
