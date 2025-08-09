@@ -3636,7 +3636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6746901312669744860, guid: 955873e9dc03be540aab34dbbd3c941d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6746901312669744860, guid: 955873e9dc03be540aab34dbbd3c941d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17064,7 +17064,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1680769091}
   m_Layer: 0
-  m_Name: 02_1
+  m_Name: 01_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17079,7 +17079,7 @@ Transform:
   m_GameObject: {fileID: 1680769090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.5, y: 1.5, z: 0}
+  m_LocalPosition: {x: 19, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
