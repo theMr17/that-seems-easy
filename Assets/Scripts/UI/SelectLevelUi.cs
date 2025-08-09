@@ -60,4 +60,9 @@ public class SelectLevelUi : MonoBehaviour
       }
     }
   }
+
+  public void OnBackButtonPressed()
+  {
+    SceneLoader.Instance.LoadScene(SceneLoader.Scene.MainMenuScene);
+  }
 }
