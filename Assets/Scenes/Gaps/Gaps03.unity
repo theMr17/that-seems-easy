@@ -11321,6 +11321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942064062}
   - component: {fileID: 942064063}
+  - component: {fileID: 942064064}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -11337,7 +11338,7 @@ Transform:
   m_GameObject: {fileID: 942064061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -3, z: 0}
+  m_LocalPosition: {x: 8, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11373,7 +11374,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -11389,6 +11390,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &942064064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942064061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecb5cbf36e5e98409b6cdc544f969f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorParameterName: 03
 --- !u!1001 &948268934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23230,7 +23244,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5721754481557181046, guid: 3db77d325438f4a488c2b0c073f078fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.15
+      value: -14.44
       objectReference: {fileID: 0}
     - target: {fileID: 5721754481557181046, guid: 3db77d325438f4a488c2b0c073f078fa, type: 3}
       propertyPath: m_LocalPosition.y
