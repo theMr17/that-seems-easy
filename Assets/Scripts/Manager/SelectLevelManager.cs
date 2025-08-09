@@ -69,7 +69,7 @@ public class SelectLevelManager : MonoBehaviour
   {
     int lastUnlockedIndex = PlayerPrefs.GetInt(LAST_UNLOCKED_PREFIX + currentTheme.levelThemeName, 0);
 
-    if (lastUnlockedIndex >= currentTheme.levels.Length)
+    if (lastUnlockedIndex >= currentTheme.levels.Length - 1)
     {
       for (int i = 0; i < levelThemes.Length - 1; i++)
       {
