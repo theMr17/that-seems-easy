@@ -6,7 +6,7 @@ public class SelectLevelUi : MonoBehaviour
 {
   public Transform levelButtonContainer;
   public GameObject levelButtonPrefab;
-  public Sprite lockedThemeIcon; // Optional placeholder icon for locked themes
+  public Sprite lockedThemeIcon;
 
   private void Start()
   {

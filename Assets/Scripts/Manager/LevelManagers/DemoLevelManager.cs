@@ -22,6 +22,6 @@ class DemoLevelManager : MonoBehaviour
 
     public void CompleteLevel()
     {
-        Debug.Log("Level Completed!");
+        SelectLevelManager.Instance.CompleteLevel();
     }
 }

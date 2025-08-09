@@ -38,11 +38,16 @@ public class PlayerMovement : MonoBehaviour
 
     private float _coyoteTimer;
 
+    private Vector3 _startPosition;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _isFacingRight = true;
+
+        // Store start position
+        _startPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -436,7 +441,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        Destroy(gameObject);
-    }
+        // Reset position
+        transform.position = _startPosition;
 
+        // Reset movement variables
+        _rigidbody.linearVelocity = Vector2.zero;
+        verticalVelocity = 0f;
+        _isJumping = false;
+        _isFalling = false;
+        _isFastFalling = false;
+        _fastFallTime = 0f;
+        _numberOfJumpsUsed = 0;
+
+        _animator.SetBool("isJumping", false);
+    }
 }

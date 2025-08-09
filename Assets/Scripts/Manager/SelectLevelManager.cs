@@ -6,7 +6,7 @@ public class SelectLevelManager : MonoBehaviour
   public static SelectLevelManager Instance { get; private set; }
 
   [Header("Theme Settings")]
-  public LevelThemeSo[] levelThemes; // Now stored here instead of UI
+  public LevelThemeSo[] levelThemes;
 
   private const string LAST_UNLOCKED_PREFIX = "LastUnlockedLevel_";
   private const string THEME_UNLOCKED_PREFIX = "ThemeUnlocked_";
@@ -40,7 +40,7 @@ public class SelectLevelManager : MonoBehaviour
 
     if (lastUnlockedIndex >= theme.levels.Length)
     {
-      lastUnlockedIndex = 0; // All completed → restart
+      lastUnlockedIndex = 0; // All completed -> restart
     }
 
     var levelToLoad = theme.levels[lastUnlockedIndex];
@@ -80,5 +80,43 @@ public class SelectLevelManager : MonoBehaviour
         }
       }
     }
+  }
+
+  public void CompleteLevel()
+  {
+    string currentScene = SceneManager.GetActiveScene().name;
+
+    // Find the current theme and level index
+    for (int t = 0; t < levelThemes.Length; t++)
+    {
+      LevelThemeSo theme = levelThemes[t];
+
+      for (int l = 0; l < theme.levels.Length; l++)
+      {
+        if (theme.levels[l].sceneName == currentScene)
+        {
+          // Unlock the next level in this theme
+          int nextLevelIndex = l + 1;
+
+          if (nextLevelIndex < theme.levels.Length)
+          {
+            UnlockNextLevel(theme, nextLevelIndex);
+            SceneManager.LoadScene(theme.levels[nextLevelIndex].sceneName);
+          }
+          else
+          {
+            // All levels completed -> unlock the next theme
+            UnlockNextThemeIfNeeded(theme);
+            SceneManager.LoadScene("LevelSelectionScene");
+          }
+
+          PlayerPrefs.Save();
+          Debug.Log($"Level complete: {currentScene}");
+          return;
+        }
+      }
+    }
+
+    Debug.LogWarning($"Could not find theme/level for scene: {currentScene}");
   }
 }
