@@ -41,6 +41,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Spikes/Spikes02.unity
     guid: d66ea26f586d67847804b600bf475843
+  - enabled: 1
+    path: Assets/Scenes/Spikes/Spikes03.unity
+    guid: 2a6819a7ea0304f48b2decfeb90f3406
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
