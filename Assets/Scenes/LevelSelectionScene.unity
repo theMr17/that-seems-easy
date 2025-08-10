@@ -1089,6 +1089,7 @@ MonoBehaviour:
   levelButtonContainer: {fileID: 556128947}
   levelButtonPrefab: {fileID: 8723231266386662233, guid: 9f0df482982516a49ade8bb4bb8622b7, type: 3}
   lockedThemeIcon: {fileID: 21300000, guid: 05c95f44ed51c4d4195d3490939bbd3c, type: 3}
+  comingSoonIcon: {fileID: 21300000, guid: a97a40765a3e4994d81af5508bb5a0ba, type: 3}
   deathCountText: {fileID: 1572996257}
 --- !u!1 &587894163
 GameObject:
