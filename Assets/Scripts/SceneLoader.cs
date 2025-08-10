@@ -28,6 +28,11 @@ public class SceneLoader : MonoBehaviour
     Spikes03,
     Spikes04,
     Spikes05,
+    Push01,
+    Push02,
+    Push03,
+    Push04,
+    Push05,
   }
 
   private void Awake()
