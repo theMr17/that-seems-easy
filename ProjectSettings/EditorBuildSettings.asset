@@ -59,6 +59,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SawBlades/SawBlades03.unity
     guid: ac9fcc3bc6f28ad44827486d843de0ec
+  - enabled: 1
+    path: Assets/Scenes/SawBlades/SawBlades04.unity
+    guid: 3c0eb3bc4bbae7c4c92a7d97386befc8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
