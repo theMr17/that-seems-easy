@@ -33,6 +33,11 @@ public class SceneLoader : MonoBehaviour
     Push03,
     Push04,
     Push05,
+    SawBlade01,
+    SawBlade02,
+    SawBlade03,
+    SawBlade04,
+    SawBlade05,
   }
 
   private void Awake()
