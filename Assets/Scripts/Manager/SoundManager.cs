@@ -37,6 +37,11 @@ public class SoundManager : MonoBehaviour
     PlaySound(_audioClipRefsSo.collectStar, position, _volume);
   }
 
+  public void PlayDeath(Vector3 position)
+  {
+    PlaySound(_audioClipRefsSo.death, position, _volume);
+  }
+
   public void ChangeVolume(float volume)
   {
     _volume = volume;

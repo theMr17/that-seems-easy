@@ -441,6 +441,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.Instance.PlayDeath(transform.position);
         StartCoroutine(AnimateDeath());
     }
 
