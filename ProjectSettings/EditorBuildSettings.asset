@@ -65,6 +65,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SawBlades/SawBlades05.unity
     guid: 132ca27e5bd12f045a4ab92a430f07b3
+  - enabled: 1
+    path: Assets/Scenes/Push/Push01.unity
+    guid: 23e4b6e7c54c89a4e87b539890da3a5c
+  - enabled: 1
+    path: Assets/Scenes/Push/Push02.unity
+    guid: cbb50fd0ab3540a498f8a0e25a8d52a0
+  - enabled: 1
+    path: Assets/Scenes/Push/Push03.unity
+    guid: e8f06a03bae2b49489fa4da9e1b0a77a
+  - enabled: 1
+    path: Assets/Scenes/Push/Push04.unity
+    guid: fa6abde46934bc94cb7b97cc933e1823
+  - enabled: 1
+    path: Assets/Scenes/Push/Push05.unity
+    guid: f7b0bfdbf15f243458f2778a686666c8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
