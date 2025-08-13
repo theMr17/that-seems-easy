@@ -1507,6 +1507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4172805323017872037, guid: fe20de9eccec8a342a89872aa2b5aad6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7316313466274573208, guid: fe20de9eccec8a342a89872aa2b5aad6, type: 3}
       propertyPath: m_text
       value: Exit
@@ -1592,7 +1596,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_Spacing: 16
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
