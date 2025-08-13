@@ -349,7 +349,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 0.41960785, b: 0, a: 1}
+  m_BackGroundColor: {r: 1, g: 0.627451, b: 0.40392157, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2064,9 +2064,9 @@ MonoBehaviour:
   levelThemes:
   - {fileID: 11400000, guid: 9561edc1c3d0178488ec4e96add0c958, type: 2}
   - {fileID: 11400000, guid: 2409f6dacb7994a49aff30eae8c290ef, type: 2}
-  - {fileID: 11400000, guid: 9e817932abba94749bbc3e00ab0d185d, type: 2}
   - {fileID: 11400000, guid: a6aa2886e6619524ca429d8470225e5c, type: 2}
   - {fileID: 11400000, guid: f83c88547e253964d90846e0006af9c5, type: 2}
+  - {fileID: 11400000, guid: 9e817932abba94749bbc3e00ab0d185d, type: 2}
   - {fileID: 11400000, guid: 858bae390f1a20c469772b661a235290, type: 2}
 --- !u!1001 &1320247841
 PrefabInstance:

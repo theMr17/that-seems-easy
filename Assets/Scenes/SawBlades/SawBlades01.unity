@@ -26506,39 +26506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5089637577044913199, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
       propertyPath: m_Name
-      value: PauseMenuUi
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768058330135779155, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768058330135779155, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768058330135779155, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768058330135779155, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842563551833291926, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842563551833291926, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842563551833291926, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7842563551833291926, guid: b34f3339bd50e4a40831085b4d573bef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: InGameUiCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

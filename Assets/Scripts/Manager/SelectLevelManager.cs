@@ -10,6 +10,9 @@ public class SelectLevelManager : MonoBehaviour
   private const string LAST_UNLOCKED_PREFIX = "LastUnlockedLevel_";
   private const string THEME_UNLOCKED_PREFIX = "ThemeUnlocked_";
 
+  public LevelThemeSo CurrentTheme { get; private set; }
+  public int CurrentLevelIndex { get; private set; }
+
   private void Awake()
   {
     if (Instance != null && Instance != this)
@@ -41,6 +44,9 @@ public class SelectLevelManager : MonoBehaviour
     {
       lastUnlockedIndex = 0; // All completed -> restart
     }
+
+    CurrentTheme = theme;
+    CurrentLevelIndex = lastUnlockedIndex;
 
     var levelToLoad = theme.levels[lastUnlockedIndex];
     // Use SceneLoader instead of SceneManager
@@ -101,6 +107,11 @@ public class SelectLevelManager : MonoBehaviour
           if (nextLevelIndex < theme.levels.Length)
           {
             UnlockNextLevel(theme, nextLevelIndex);
+
+            // Update in-memory current level info
+            CurrentTheme = theme;
+            CurrentLevelIndex = nextLevelIndex;
+
             SceneLoader.Instance.LoadScene(theme.levels[nextLevelIndex].sceneEnum);
           }
           else
