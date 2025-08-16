@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1f5d3e1b39a6842adf6d85d5c773a4, type: 3}
   m_Name: Audio Clip Refs So
   m_EditorClassIdentifier: 
-  death: []
+  collectStar:
+  - {fileID: 8300000, guid: 11a4ca7cd4d9a7547b696bc4c964f1cc, type: 3}
+  death:
+  - {fileID: 8300000, guid: 7f3a593212df0c4469e9915d94cd49bd, type: 3}

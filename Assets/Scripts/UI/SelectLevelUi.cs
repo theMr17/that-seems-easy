@@ -7,10 +7,13 @@ public class SelectLevelUi : MonoBehaviour
   public Transform levelButtonContainer;
   public GameObject levelButtonPrefab;
   public Sprite lockedThemeIcon;
+  public Sprite comingSoonIcon;
+  public TextMeshProUGUI deathCountText;
 
   private void Start()
   {
     PopulateThemeButtons();
+    deathCountText.text = PlayerPrefs.GetInt("DeathCount", 0).ToString();
   }
 
   private void PopulateThemeButtons()
@@ -42,6 +45,17 @@ public class SelectLevelUi : MonoBehaviour
       var btn = buttonObj.GetComponent<Button>();
       btn.onClick.RemoveAllListeners();
 
+      // Check theme availability first
+      if (!theme.isAvailable)
+      {
+        btn.interactable = false;
+        if (buttonObj.transform.Find("PlayerImage").TryGetComponent<Image>(out var playerImage))
+        {
+          playerImage.sprite = comingSoonIcon;
+        }
+        continue; // Skip the locked/unlocked check
+      }
+
       bool isUnlocked = SelectLevelManager.Instance.IsThemeUnlocked(theme);
 
       if (isUnlocked)
@@ -52,12 +66,17 @@ public class SelectLevelUi : MonoBehaviour
       else
       {
         btn.interactable = false;
-
         if (buttonObj.transform.Find("PlayerImage").TryGetComponent<Image>(out var playerImage))
         {
           playerImage.sprite = lockedThemeIcon;
         }
       }
     }
+  }
+
+
+  public void OnBackButtonPressed()
+  {
+    SceneLoader.Instance.LoadScene(SceneLoader.Scene.MainMenuScene);
   }
 }

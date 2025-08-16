@@ -4,5 +4,5 @@ using UnityEngine;
 public class LevelSo : ScriptableObject
 {
   [Tooltip("Name of the scene to load")]
-  public string sceneName;
+  public SceneLoader.Scene sceneEnum;
 }

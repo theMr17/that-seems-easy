@@ -14,11 +14,16 @@ public class MainMenuUi : MonoBehaviour
     _playButton.onClick.AddListener(OnPlayButtonClicked);
     _optionsButton.onClick.AddListener(OnOptionsButtonClicked);
     _exitButton.onClick.AddListener(OnExitButtonClicked);
+
+    if (Application.platform == RuntimePlatform.WebGLPlayer)
+    {
+      _exitButton.gameObject.SetActive(false);
+    }
   }
 
   private void OnPlayButtonClicked()
   {
-    SceneManager.LoadScene("LevelSelectionScene");
+    SceneLoader.Instance.LoadScene(SceneLoader.Scene.LevelSelectionScene);
   }
 
   private void OnOptionsButtonClicked()

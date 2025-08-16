@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const string PLAYER_PREFS_DEATH_COUNT = "DeathCount";
+
     public static PlayerMovement LocalInstance { get; private set; }
 
     [Header("References")]
@@ -439,6 +441,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.Instance.PlayDeath(transform.position);
         StartCoroutine(AnimateDeath());
     }
 
@@ -449,6 +452,8 @@ public class PlayerMovement : MonoBehaviour
         enabled = false;
         _rigidbody.linearVelocity = Vector2.zero;
         GetComponent<SpriteRenderer>().enabled = false;
+
+        PlayerPrefs.SetInt(PLAYER_PREFS_DEATH_COUNT, PlayerPrefs.GetInt(PLAYER_PREFS_DEATH_COUNT, 0) + 1);
 
         // Wait until particle system finishes playing
         yield return new WaitForSeconds(_deathParticleSystem.main.duration + _deathParticleSystem.main.startLifetime.constantMax);

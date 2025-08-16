@@ -25,7 +25,7 @@ class DemoLevelManager : MonoBehaviour
 
     public void Reset()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneLoader.Instance.LoadScene((SceneLoader.Scene)System.Enum.Parse(typeof(SceneLoader.Scene), SceneManager.GetActiveScene().name));
     }
 
     public void CompleteLevel()

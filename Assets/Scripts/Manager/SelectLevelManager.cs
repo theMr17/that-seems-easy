@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SelectLevelManager : MonoBehaviour
 {
@@ -10,6 +9,9 @@ public class SelectLevelManager : MonoBehaviour
 
   private const string LAST_UNLOCKED_PREFIX = "LastUnlockedLevel_";
   private const string THEME_UNLOCKED_PREFIX = "ThemeUnlocked_";
+
+  public LevelThemeSo CurrentTheme { get; private set; }
+  public int CurrentLevelIndex { get; private set; }
 
   private void Awake()
   {
@@ -43,8 +45,12 @@ public class SelectLevelManager : MonoBehaviour
       lastUnlockedIndex = 0; // All completed -> restart
     }
 
+    CurrentTheme = theme;
+    CurrentLevelIndex = lastUnlockedIndex;
+
     var levelToLoad = theme.levels[lastUnlockedIndex];
-    SceneManager.LoadScene(levelToLoad.sceneName);
+    // Use SceneLoader instead of SceneManager
+    SceneLoader.Instance.LoadScene(levelToLoad.sceneEnum);
   }
 
   public void UnlockNextLevel(LevelThemeSo theme, int unlockedIndex)
@@ -84,7 +90,7 @@ public class SelectLevelManager : MonoBehaviour
 
   public void CompleteLevel()
   {
-    string currentScene = SceneManager.GetActiveScene().name;
+    string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 
     // Find the current theme and level index
     for (int t = 0; t < levelThemes.Length; t++)
@@ -93,7 +99,7 @@ public class SelectLevelManager : MonoBehaviour
 
       for (int l = 0; l < theme.levels.Length; l++)
       {
-        if (theme.levels[l].sceneName == currentScene)
+        if (theme.levels[l].sceneEnum.ToString() == currentScene)
         {
           // Unlock the next level in this theme
           int nextLevelIndex = l + 1;
@@ -101,13 +107,18 @@ public class SelectLevelManager : MonoBehaviour
           if (nextLevelIndex < theme.levels.Length)
           {
             UnlockNextLevel(theme, nextLevelIndex);
-            SceneManager.LoadScene(theme.levels[nextLevelIndex].sceneName);
+
+            // Update in-memory current level info
+            CurrentTheme = theme;
+            CurrentLevelIndex = nextLevelIndex;
+
+            SceneLoader.Instance.LoadScene(theme.levels[nextLevelIndex].sceneEnum);
           }
           else
           {
             // All levels completed -> unlock the next theme
             UnlockNextThemeIfNeeded(theme);
-            SceneManager.LoadScene("LevelSelectionScene");
+            SceneLoader.Instance.LoadScene(SceneLoader.Scene.LevelSelectionScene);
           }
 
           PlayerPrefs.Save();
